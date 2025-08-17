@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom"; // ← "react-router-dom"
 import "./index.css";
 import App from "./App.jsx";
 import Layout from "./Layout.jsx";
@@ -14,13 +14,14 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<App />} />
+          <Route index element={<SettingPage />} />
           <Route path="toukou" element={<Toukou />} />
           <Route path="private" element={<Private />} />
-          <Route path="/setting-page" element={<SettingPage />} />
+          <Route path="setting-page" element={<SettingPage />} />
           <Route path="touhyou" element={<Touhyou />} />
+          <Route path="app" element={<App />} />
         </Route>
       </Routes>
     </BrowserRouter>
-  </StrictMode>,
+  </StrictMode>
 );
